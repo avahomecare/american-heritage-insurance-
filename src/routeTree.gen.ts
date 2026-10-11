@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CardRouteImport } from './routes/card'
 import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as CommercialRouteImport } from './routes/commercial'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -30,6 +31,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CardRoute = CardRouteImport.update({
+  id: '/card',
+  path: '/card',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ClientsRoute = ClientsRouteImport.update({
@@ -86,6 +92,7 @@ const TrucksRoute = TrucksRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/card': typeof CardRoute
   '/clients': typeof ClientsRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
@@ -100,6 +107,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/card': typeof CardRoute
   '/clients': typeof ClientsRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/card': typeof CardRoute
   '/clients': typeof ClientsRoute
   '/commercial': typeof CommercialRoute
   '/contact': typeof ContactRoute
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/card'
     | '/clients'
     | '/commercial'
     | '/contact'
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/card'
     | '/clients'
     | '/commercial'
     | '/contact'
@@ -159,6 +170,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/card'
     | '/clients'
     | '/commercial'
     | '/contact'
@@ -174,6 +186,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CardRoute: typeof CardRoute
   ClientsRoute: typeof ClientsRoute
   CommercialRoute: typeof CommercialRoute
   ContactRoute: typeof ContactRoute
@@ -200,6 +213,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/card': {
+      id: '/card'
+      path: '/card'
+      fullPath: '/card'
+      preLoaderRoute: typeof CardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/clients': {
@@ -278,6 +298,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CardRoute: CardRoute,
   ClientsRoute: ClientsRoute,
   CommercialRoute: CommercialRoute,
   ContactRoute: ContactRoute,
