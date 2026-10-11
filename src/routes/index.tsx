@@ -117,34 +117,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-b border-line bg-cream">
-        <div className="mx-auto max-w-7xl px-5 py-12">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-xs tracking-widest text-gold uppercase">Google reviews</p>
-              <p className="mt-2 font-display text-4xl text-ink">4.4</p>
-              <p className="mt-1 text-base text-ink-soft">Google rating · 7 reviews</p>
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <span className="inline-flex min-h-11 items-center border border-gold px-4 text-base text-ink">
-                Leave us a review
-              </span>
-              <span className="inline-flex min-h-11 items-center text-base text-gold">
-                Read all reviews on Google
-              </span>
-              <p className="text-base text-ink">[add Google review link]</p>
-            </div>
-          </div>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {["1", "2", "3", "4"].map((slot) => (
-              <li key={slot} className="border border-line bg-paper p-5 text-base text-ink">
-                [add real Google review]
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       <section className="mx-auto max-w-7xl px-5 py-16">
         <h2 className="text-3xl text-ink md:text-4xl">Why an independent agency</h2>
         <ul className="mt-8 grid gap-4 md:grid-cols-2">
