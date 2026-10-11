@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Handshake, Phone, Shield, Users } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
-import { cities, lines, office } from "@/lib/content";
+import { lines, office } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -155,7 +155,7 @@ function Home() {
             <article>
               <h3 className="text-2xl text-ink">Where we work</h3>
               <p className="mt-3 text-base leading-relaxed text-ink-soft">
-                {cities.join(", ")}, and nearby.
+                The office is at {office.address}. We work throughout Colorado. Most of our clients are in the Denver metro, but if the risk is in Colorado, just ask.
               </p>
             </article>
           </div>
