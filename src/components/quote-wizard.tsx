@@ -417,10 +417,9 @@ export function QuoteWizard({
                       className="mt-1 size-5 shrink-0 accent-[#1f3a5f]"
                     />
                     <span>
-                      Optional: I agree to receive calls and text messages from American Heritage Insurance
-                      Brokers, Inc. at the phone number above about my quote, including by automated means.
-                      Message and data rates may apply. Message frequency varies. Reply STOP to opt out or HELP
-                      for help. Consent is not a condition of purchase. See our{" "}
+                      By providing your phone number, you agree to receive calls and SMS messages about your
+                      quote. Message and data rates may apply. Reply STOP to opt out. Consent is not a condition
+                      of purchase. See our{" "}
                       <Link to="/privacy" className="text-gold underline-offset-4 hover:underline">
                         Privacy Policy
                       </Link>

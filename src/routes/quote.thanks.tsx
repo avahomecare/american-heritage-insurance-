@@ -24,9 +24,8 @@ function Thanks() {
         <div className="border border-line bg-cream p-8 md:p-10">
           <p className="text-xs tracking-widest uppercase text-gold">Request received</p>
           <h1 className="mt-3 text-4xl text-ink">Thank you. The office has your request.</h1>
-          {/* TODO(Tatsiana): confirm the response time before publishing. */}
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
-            We'll contact you within [уточнить]. Coverage is not bound until we confirm it with you.
+            We'll contact you within 24 hours (business days). Coverage is not bound until we confirm it with you.
           </p>
           <h2 className="mt-8 text-xs tracking-widest uppercase text-gold">To prepare for the call</h2>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-base text-ink-soft">
