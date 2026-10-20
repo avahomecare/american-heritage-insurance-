@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { contactStep, currentInsuranceFields, has, QuoteWizard, YN, YNS, type StepDef, type Values } from "@/components/quote-wizard";
+import { contactStep, currentInsuranceFields, QuoteWizard, YN, YNS, type StepDef, type Values } from "@/components/quote-wizard";
 
 export const Route = createFileRoute("/quote/personal")({
   head: () => ({
@@ -11,8 +11,8 @@ export const Route = createFileRoute("/quote/personal")({
   component: PersonalQuote,
 });
 
-const auto = (v: Values) => has(v, "lines", "Personal Auto");
-const home = (v: Values) => has(v, "lines", "Personal Home");
+const auto = (v: Values) => v.lines === "Auto" || v.lines === "Auto + Home";
+const home = (v: Values) => v.lines === "Home" || v.lines === "Auto + Home";
 const count = ["1", "2", "3", "4", "5", "6"];
 
 const steps: StepDef[] = [
@@ -20,8 +20,9 @@ const steps: StepDef[] = [
   {
     id: "household",
     title: "What are we quoting",
+    intro: "Choose Home or Auto + Home to see the home questions.",
     fields: [
-      { k: "lines", l: "Coverage needed", t: "multi", o: ["Personal Auto", "Personal Home"], req: true },
+      { k: "lines", l: "What would you like quoted", t: "cards", o: ["Auto", "Home", "Auto + Home"], req: true },
       { k: "own_rent", l: "Do you own or rent", t: "radio", o: ["Own", "Rent", "Other"] },
       { k: "years_at_address", l: "Years at current address", t: "num" },
     ],

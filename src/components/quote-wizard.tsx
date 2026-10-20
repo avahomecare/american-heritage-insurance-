@@ -10,7 +10,7 @@ type Row = Record<string, string | string[]>;
 export type FieldDef = {
   k: string;
   l: string;
-  t?: "text" | "num" | "date" | "email" | "tel" | "sel" | "radio" | "multi" | "area";
+  t?: "text" | "num" | "date" | "email" | "tel" | "sel" | "radio" | "multi" | "area" | "cards";
   o?: string[];
   req?: boolean;
   wide?: boolean;
@@ -64,6 +64,34 @@ function Input({
     </span>
   );
   const cls = `block ${f.wide || t === "area" || t === "multi" ? "sm:col-span-2" : ""}`;
+  if (t === "cards") {
+    return (
+      <fieldset className="block sm:col-span-2">
+        <legend className="mb-3 block text-xs tracking-widest uppercase text-muted">
+          {f.l}
+          {f.req ? " *" : ""}
+        </legend>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {opts.map((o) => {
+            const on = value === o;
+            return (
+              <button
+                key={o}
+                type="button"
+                aria-pressed={on}
+                onClick={() => onChange(o)}
+                className={`min-h-20 border-2 px-4 py-5 text-center text-xl ${
+                  on ? "border-navy bg-navy text-cream" : "border-line bg-paper text-ink hover:border-navy"
+                }`}
+              >
+                {o}
+              </button>
+            );
+          })}
+        </div>
+      </fieldset>
+    );
+  }
   if (t === "radio" || t === "multi") {
     const arr = Array.isArray(value) ? value : [];
     return (
