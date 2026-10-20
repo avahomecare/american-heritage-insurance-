@@ -45,7 +45,7 @@ function AboutPage() {
             <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-soft">
               <p>
                 Tatsiana has been helping Colorado business owners and families protect what matters most
-                for over [уточнить] years. She specializes in commercial lines — General Liability,
+                for over 20 years. She specializes in commercial lines — General Liability,
                 Workers' Compensation, Commercial Auto, Business Owner's Policies, Professional Liability,
                 and Umbrella coverage — as well as personal policies including Auto, Home, Renters, and
                 Life.
