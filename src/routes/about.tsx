@@ -6,12 +6,14 @@ import { licenses, office } from "@/lib/content";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About · American Heritage Insurance Brokers, Inc." },
+      { title: "About Tatsiana Tarasava | American Heritage Insurance Brokers" },
       {
         name: "description",
         content:
-          "American Heritage Insurance Brokers, Inc. is an independent agency in Aurora, Colorado.",
+          "Tatsiana Tarasava is an independent insurance broker in Colorado helping business owners and families with commercial and personal insurance that fits.",
       },
+      { property: "og:title", content: "About Tatsiana Tarasava | American Heritage Insurance Brokers" },
+      { property: "og:image", content: "/images/tatsiana-tarasava.jpg" },
     ],
   }),
   component: AboutPage,
@@ -22,11 +24,56 @@ function AboutPage() {
     <PageShell>
       <section className="relative overflow-hidden">
         <FadedAside src="/aside-about.jpg" />
-        <div className="relative mx-auto max-w-6xl px-5 py-12 md:py-16">
-        <p className="text-xs tracking-widest uppercase text-gold">About the agency</p>
-        <h1 className="mt-3 max-w-3xl text-4xl text-ink md:text-5xl">
-          An independent agency that shops the market, then stays after the policy is bound.
-        </h1>
+        <div className="relative mx-auto grid max-w-6xl items-start gap-10 px-5 py-12 md:grid-cols-12 md:gap-12 md:py-16">
+          <div className="md:col-span-5">
+            <img
+              src="/images/tatsiana-tarasava.jpg"
+              alt="Tatsiana Tarasava, Agent and Owner, American Heritage Insurance Brokers"
+              width={800}
+              height={1000}
+              fetchPriority="high"
+              decoding="async"
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="relative z-10 aspect-[4/5] w-full max-w-md border border-line object-cover"
+            />
+          </div>
+          <div className="relative z-10 md:col-span-7">
+            <h1 className="text-4xl text-ink md:text-5xl">About Tatsiana Tarasava</h1>
+            <p className="mt-3 text-xs tracking-widest uppercase text-gold">
+              Agent and Owner, American Heritage Insurance Brokers, Inc.
+            </p>
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-soft">
+              <p>
+                Tatsiana has been helping Colorado business owners and families protect what matters most
+                for over 20 years. She specializes in commercial lines — General Liability,
+                Workers' Compensation, Commercial Auto, Business Owner's Policies, Professional Liability,
+                and Umbrella coverage — as well as personal policies including Auto, Home, Renters, and
+                Life.
+              </p>
+              <p>
+                Her clients range from home care agencies and contractors to individuals and families
+                across Colorado.
+              </p>
+              <p>
+                Tatsiana takes the time to understand each client's risks and finds coverage that fits,
+                not just the cheapest option.
+              </p>
+            </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                to="/quote"
+                className="inline-flex min-h-11 items-center justify-center bg-navy px-5 text-sm font-medium text-cream transition-colors duration-200 hover:bg-ink-soft"
+              >
+                Get a Quote
+              </Link>
+              <a
+                href="tel:7207483893"
+                className="inline-flex min-h-11 items-center justify-center border border-navy px-5 text-sm font-medium text-navy transition-colors duration-200 hover:bg-navy hover:text-cream"
+              >
+                Call 720.748.3893
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

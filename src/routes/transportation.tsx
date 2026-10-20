@@ -48,8 +48,7 @@ function TransportationPage() {
           Licensed in Colorado since 2007.
         </p>
         <Link
-          to="/quote"
-          search={{ kind: "business" }}
+          to="/quote/commercial"
           className="mt-8 inline-flex min-h-11 items-center bg-navy px-5 text-sm font-medium text-cream"
         >
           Get a transportation quote
