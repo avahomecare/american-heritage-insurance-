@@ -18,10 +18,13 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CoverageRouteImport } from './routes/coverage'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as QuoteRouteImport } from './routes/quote'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TransportationRouteImport } from './routes/transportation'
 import { Route as TrucksRouteImport } from './routes/trucks'
+import { Route as QuoteIndexRouteImport } from './routes/quote.index'
+import { Route as QuoteCommercialRouteImport } from './routes/quote.commercial'
+import { Route as QuotePersonalRouteImport } from './routes/quote.personal'
+import { Route as QuoteThanksRouteImport } from './routes/quote.thanks'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -68,11 +71,6 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QuoteRoute = QuoteRouteImport.update({
-  id: '/quote',
-  path: '/quote',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -88,6 +86,26 @@ const TrucksRoute = TrucksRouteImport.update({
   path: '/trucks',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuoteIndexRoute = QuoteIndexRouteImport.update({
+  id: '/quote/',
+  path: '/quote/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuoteCommercialRoute = QuoteCommercialRouteImport.update({
+  id: '/quote/commercial',
+  path: '/quote/commercial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuotePersonalRoute = QuotePersonalRouteImport.update({
+  id: '/quote/personal',
+  path: '/quote/personal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuoteThanksRoute = QuoteThanksRouteImport.update({
+  id: '/quote/thanks',
+  path: '/quote/thanks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -99,10 +117,13 @@ export interface FileRoutesByFullPath {
   '/coverage': typeof CoverageRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
-  '/quote': typeof QuoteRoute
   '/terms': typeof TermsRoute
   '/transportation': typeof TransportationRoute
   '/trucks': typeof TrucksRoute
+  '/quote/commercial': typeof QuoteCommercialRoute
+  '/quote/personal': typeof QuotePersonalRoute
+  '/quote/thanks': typeof QuoteThanksRoute
+  '/quote/': typeof QuoteIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -114,10 +135,13 @@ export interface FileRoutesByTo {
   '/coverage': typeof CoverageRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
-  '/quote': typeof QuoteRoute
   '/terms': typeof TermsRoute
   '/transportation': typeof TransportationRoute
   '/trucks': typeof TrucksRoute
+  '/quote/commercial': typeof QuoteCommercialRoute
+  '/quote/personal': typeof QuotePersonalRoute
+  '/quote/thanks': typeof QuoteThanksRoute
+  '/quote': typeof QuoteIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -130,10 +154,13 @@ export interface FileRoutesById {
   '/coverage': typeof CoverageRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
-  '/quote': typeof QuoteRoute
   '/terms': typeof TermsRoute
   '/transportation': typeof TransportationRoute
   '/trucks': typeof TrucksRoute
+  '/quote/commercial': typeof QuoteCommercialRoute
+  '/quote/personal': typeof QuotePersonalRoute
+  '/quote/thanks': typeof QuoteThanksRoute
+  '/quote/': typeof QuoteIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -147,10 +174,13 @@ export interface FileRouteTypes {
     | '/coverage'
     | '/faq'
     | '/privacy'
-    | '/quote'
     | '/terms'
     | '/transportation'
     | '/trucks'
+    | '/quote/commercial'
+    | '/quote/personal'
+    | '/quote/thanks'
+    | '/quote/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -162,10 +192,13 @@ export interface FileRouteTypes {
     | '/coverage'
     | '/faq'
     | '/privacy'
-    | '/quote'
     | '/terms'
     | '/transportation'
     | '/trucks'
+    | '/quote/commercial'
+    | '/quote/personal'
+    | '/quote/thanks'
+    | '/quote'
   id:
     | '__root__'
     | '/'
@@ -177,10 +210,13 @@ export interface FileRouteTypes {
     | '/coverage'
     | '/faq'
     | '/privacy'
-    | '/quote'
     | '/terms'
     | '/transportation'
     | '/trucks'
+    | '/quote/commercial'
+    | '/quote/personal'
+    | '/quote/thanks'
+    | '/quote/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -193,10 +229,13 @@ export interface RootRouteChildren {
   CoverageRoute: typeof CoverageRoute
   FaqRoute: typeof FaqRoute
   PrivacyRoute: typeof PrivacyRoute
-  QuoteRoute: typeof QuoteRoute
   TermsRoute: typeof TermsRoute
   TransportationRoute: typeof TransportationRoute
   TrucksRoute: typeof TrucksRoute
+  QuoteCommercialRoute: typeof QuoteCommercialRoute
+  QuotePersonalRoute: typeof QuotePersonalRoute
+  QuoteThanksRoute: typeof QuoteThanksRoute
+  QuoteIndexRoute: typeof QuoteIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -264,13 +303,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/quote': {
-      id: '/quote'
-      path: '/quote'
-      fullPath: '/quote'
-      preLoaderRoute: typeof QuoteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -292,6 +324,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrucksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quote/': {
+      id: '/quote/'
+      path: '/quote'
+      fullPath: '/quote/'
+      preLoaderRoute: typeof QuoteIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quote/commercial': {
+      id: '/quote/commercial'
+      path: '/quote/commercial'
+      fullPath: '/quote/commercial'
+      preLoaderRoute: typeof QuoteCommercialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quote/personal': {
+      id: '/quote/personal'
+      path: '/quote/personal'
+      fullPath: '/quote/personal'
+      preLoaderRoute: typeof QuotePersonalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quote/thanks': {
+      id: '/quote/thanks'
+      path: '/quote/thanks'
+      fullPath: '/quote/thanks'
+      preLoaderRoute: typeof QuoteThanksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -305,10 +365,13 @@ const rootRouteChildren: RootRouteChildren = {
   CoverageRoute: CoverageRoute,
   FaqRoute: FaqRoute,
   PrivacyRoute: PrivacyRoute,
-  QuoteRoute: QuoteRoute,
   TermsRoute: TermsRoute,
   TransportationRoute: TransportationRoute,
   TrucksRoute: TrucksRoute,
+  QuoteCommercialRoute: QuoteCommercialRoute,
+  QuotePersonalRoute: QuotePersonalRoute,
+  QuoteThanksRoute: QuoteThanksRoute,
+  QuoteIndexRoute: QuoteIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
